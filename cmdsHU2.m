@@ -63,7 +63,7 @@ plotbra('dyt','labi',2,'cmp',0)
 % 11: min of u (not v)
 % 12: L_2-Norm of u(x) when y=y0 (y0=0 for now).
 
-plotbra('dyt','labi',2,'cmp',12)
+plotbra('dyt','labi',2,'cmp',9)
 p=loadp('dyt','pt8')
 plotsol(p)
 ploy0(p,0,12)
