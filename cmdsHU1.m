@@ -1,6 +1,8 @@
 close all; clear; run('~/berkeley_trabajo/newp2p/pde2path/setpde2path.m')
 close all; keep pphome; 
-%% init
+%% init 
+% 1/8/22 THis is an old file. It does not work because it is missing the
+% parameters I(external current) and dyy. Use cmdsHU2.m instead!
 % init_cond=load('campo.dat');
 D=0.5; M=4; eps=0.05; nb=0.5;
 dx=0.15; vel=-0.5451; del=1e-2; % diff.of 2nd compo 

@@ -1,0 +1,2 @@
+# The parameters (s)peed and p are allow to vary. Starting from (p,s)=(0,1), we perform continuation on p until we find a Hopf bifurcation (HB)
+a=run('fhn')

@@ -1,0 +1,24 @@
+# The parameters (s)peed and p are allow to vary. Starting from (p,s)=(0,1), we perform continuation on p until we find a Hopf bifurcation (HB)
+a=run('fhn')
+# We compute the curve in the (p,s) space where the Hopf bifurcation takes place (cf. Fig 1 of Champneys et al 2007 SIADS)
+b=run(a('HB1'),ISW=2,ICP=[1,2],UZSTOP={'p':[0,0.6],'s':[0.3,1.5]},NMX=80,NPR=8)
+#go along the same branch but in the opposite direction
+b=run(b('UZ1'),DS='-',DSMAX=5e-2,NMX=200)
+#we plot this curve in the s against p plot. This is the red curve in the paper
+plot(b)
+#Now we select a particular horizontal line and do continuation in p for a fixed (s)peed, as shown in the figure, there should be 2 HB (2 intersections with the parabola)
+c=run(b,IRS=12,ISW=1,ICP=['p','s'],NMX=50,NPR=5,DS='-',UZSTOP={})
+c=run(c('EP1'),DS='-',NMX=150,NPR=15)
+plot b+c
+#We refer to these hopf points as the left and right respectively.
+# We can get a numerical approximation of the homoclinic orbit in the comoving frame (corresponding to a travelling wave in the PDE) by doing continuation on 2 parameters of the Hopf Bifurcation point (HB), being one of the parameters the PERIOD. The natural choice for the second parameter are 'p' or 's'. When the period is "high enough", we are close to the homoclinic orbit. In practice this means that the different solutions seem to converge to a limit orbit, the homoclinic one. Notice that the discretisation might need some improvement in some cases.
+
+rightp=run(c('HB1'),IPS=2,ICP=['p','PERIOD'],NMX=340,NPR=34,DSMAX=1e-2,ISP=0,UZR={'p':[0.551]})
+rights=run(c('HB1'),IPS=2,ICP=['s','PERIOD'],NMX=500,NPR=50,DSMAX=1e-2)
+
+leftp=run(c('HB2'),IPS=2,ICP=['p','PERIOD'],NMX=300,NPR=30,DSMAX=1e-2,ISP=0)
+
+lefts=run(c('HB2'),IPS=2,ICP=['s','PERIOD'],NMX=300,NPR=30,DSMAX=1e-2,ISP=0)
+
+
+#Interestingly, the continuation in p shows a nontrivial increase in the period. COntinuation in s seems more robust, we'll use a large period lefts as our initial guess for homcont.

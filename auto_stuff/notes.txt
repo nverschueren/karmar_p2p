@@ -1,0 +1,10 @@
+Notes 29/7/22
+The plan is to perform numerical continuation of the homoclinic orbit in the ode system given by the comoving frame of
+a Fitzhugh-nagumo like system.
+Using AUTO, the procedure is as follows:
+Take a fixed-point solutions, do 1 par cont. IPS=1, find a HB, then IPS=2 in 2 par, second=PERIOD. The periodic orbits of large period are a good initial guessing for the homoclinic orbit. If you dare, using the periodic orbit, do IPS=9 and do continuation of the homoclinic orbit using HOMCONT.
+
+I tried this in fitzhugh nagumo and I can't jump from the periodic orbit to the homoclinic
+in lorenz, it works
+in karma with ramp function analytic approximation. It works
+IN karma with heaviside I have not found the equilibria yet.

@@ -17,7 +17,7 @@ v=1./(cosh(bet*x)+10*exp(-10*bet*x));
 p.u(1:p.nu)=[u; v]; plotsol(p); 
 p.u0x=p.mat.M\(p.mat.Kx*p.u(1:p.nu)); % reference profile
 %% converge to pulse via freezing
-nt=1e4; pmod=round(nt/50); vmod=pmod; dt=0.0025; vel=[];  
+nt=2e4; pmod=round(nt/50); vmod=pmod; dt=0.0025; vel=[];  
 [p,t1,vel]=tintfreeze2d(p,t1,dt,nt,pmod,vel,vmod); p0=p; 
 %%  setting the phase conditions
 p=p0;
