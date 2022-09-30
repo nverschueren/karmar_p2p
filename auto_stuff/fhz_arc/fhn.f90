@@ -40,7 +40,7 @@
       DFDU(1,2)=1.0
       DFDU(1,3)=0.0
 
-      DFDU(2,1)=-((v-1)*(alp-v)+v*(alp-v)-v*(v-1))/del
+      DFDU(2,1)=-(3*v*v-2*(alp-1)*v+alp)/del
       DFDU(2,2)=s/del
       DFDU(2,3)=1.0/del
 
@@ -52,17 +52,17 @@
       IF(IJAC.EQ.1)RETURN 
 
       DFDP(1,1:6)=0.0
-      DFDP(1,2:4)=0
+
 
       DFDP(2,1)=-1/del
       DFDP(2,2)=d/del
       DFDP(2,3)=-(s*d+w-p-efe)/del/del
-      DFDP(2,4)=v*v*(v-1)/del
+      DFDP(2,4)=-v*(v-1)/del
       DFDP(2,5:6)=0.0
 
 
       DFDP(3,1)=0.0
-      DFDP(3,2)=eps*(v-gam*w)/s/s
+      DFDP(3,2)=-eps*(v-gam*w)/s/s
       DFDP(3,3:4)=0.0
       DFDP(3,5)=-eps*w/s
       DFDP(3,6)=(v-gam*w)/s
