@@ -6,8 +6,8 @@ hb=b1+run(b('HB1'),ICP=['I','c'],ILP=0,ISW=2,NMX=100,DS='-')
 hb=relabel(hb)
 # Continuation Homoclinic wrt I
 hom=run(b,IRS=9,IPS=9,ICP=['c','I'],NMX=40,NPR=3,DSMAX=1e-2)
-hom=hom+run(b,IRS=9,IPS=9,ICP=['c','I'],NMX=100,NPR=20,DSMAX=1e-1,DS='-')
-hom=relabel(hom)
+hom2=run(b,IRS=9,IPS=9,ICP=['c','I'],NMX=100,NPR=20,DSMAX=1e-1,DS='-')
+
 # Continue Homoclinic wrt nB
 #d=run(b,IRS=10,IPS=9,ICP=['c','nb'],NMX=200,NPR=20,DSMAX=1e-2)
 #d=d+run(b,IRS=10,IPS=9,ICP=['c','nb'],NMX=200,NPR=20,DS=-0.01,DSMAX=1e-2)
