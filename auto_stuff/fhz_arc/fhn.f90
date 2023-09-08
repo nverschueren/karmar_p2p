@@ -40,7 +40,7 @@
       DFDU(1,2)=1.0
       DFDU(1,3)=0.0
 
-      DFDU(2,1)=-(3*v*v-2*(alp-1)*v+alp)/del
+      DFDU(2,1)=(3*v*v-2*(alp+1)*v+alp)/del!I think it is correct now.
       DFDU(2,2)=s/del
       DFDU(2,3)=1.0/del
 
