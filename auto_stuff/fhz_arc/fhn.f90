@@ -40,7 +40,9 @@
       DFDU(1,2)=1.0
       DFDU(1,3)=0.0
 
-      DFDU(2,1)=(3*v*v-2*(alp+1)*v+alp)/del!I think it is correct now.
+!      DFDU(2,1)=-((v-1)*(alp-v)+v*(alp-v)-v*(v-1))/del
+
+      DFDU(2,1)=(3*v*v-2*(alp-1)*v+alp)/del
       DFDU(2,2)=s/del
       DFDU(2,3)=1.0/del
 
@@ -52,7 +54,7 @@
       IF(IJAC.EQ.1)RETURN 
 
       DFDP(1,1:6)=0.0
-
+!      DFDP(1,2:4)=0
 
       DFDP(2,1)=-1/del
       DFDP(2,2)=d/del
@@ -78,16 +80,16 @@
       DOUBLE PRECISION, INTENT(INOUT) :: U(NDIM),PAR(*)
       DOUBLE PRECISION, INTENT(IN) :: T
 
-       PAR(1)=0.0!p
-       PAR(2)=1.0 !(s)peed
+       PAR(1)=0.01!p
+       PAR(2)=1.06 !(s)peed
        PAR(3)=5.0!(del)ta
        PAR(4)=0.1 !(alp)ha
        PAR(5)=1.0 !(gam)ma
        PAR(6)=0.01 !(eps)ilon
-       
-       U(1)=0.0! In newton we trust
+       PAR(11)=511.50
+       U(1)=0.1! In newton we trust
        U(2)=0.0
-       U(3)=0.0
+       U(3)=0.1
 
       END SUBROUTINE STPNT
 
