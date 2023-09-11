@@ -13,4 +13,7 @@ IN karma with heaviside I have not found the equilibria yet.
 
 Elena updated the script for the Karramp and Karhe, finding the hopf and homoclinic orbit curves
 
+11/9/23
+I finally computed the C and U bifurcation diagram from CHamp.
+
 
